@@ -16,6 +16,12 @@
             </div>
         @endif
     </div>
+    <form method="get" action="{{route('product.search')}}">
+        @csrf
+        @method('get')
+        <input type="search" name="name" id="">
+        <input type="submit" value="Search">
+    </form>
     <div>
         <div>
             <a href="{{route('product.create')}}">Create a product</a>
@@ -23,6 +29,10 @@
         <table border="1">
             <tr>
                 <th>ID</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Color</th>
+                <th>Size</th>
                 <th>Name</th>
                 <th>Qty</th>
                 <th>Price</th>
@@ -33,6 +43,10 @@
             @foreach ($products as $product)
                 <tr>
                     <td>{{$product->id}}</td>
+                    <td>{{$product->brand->name}}</td>
+                    <td>{{$product->category->name}}</td>
+                    <td>{{$product->product_detail->color}}</td>
+                    <td>{{$product->product_detail->size}}</td>
                     <td>{{$product->name}}</td>
                     <td>{{$product->qty}}</td>
                     <td>{{$product->price}}</td>

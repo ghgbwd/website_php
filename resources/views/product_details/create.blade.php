@@ -18,41 +18,35 @@
         </div>
     @endif
 
-    <form method="post" action="{{route('product.store')}}">
+    <form method="post" action="{{route('product_details.store')}}">
         @csrf
         @method('post')
-        <div>
-            <label for="">Name</label>
-            <input type="text" name="name">
 
-        </div>
         <div>
-            <label for="">Category Id</label>
-            <input type="text" name="category_id">
+            <label for="">Product Id</label>
+            <input type="text" name="product_id">
         </div>
-        <div>
-            <label for="">Brand Id</label>
-            <input type="text" name="brand_id">
-        </div>
-        <div>
-            <label for="">Product detail Id</label>
-            <input type="text" name="product_detail_id">
-        </div>
+
         <div>
             <label for="">Qty</label>
             <input type="text" name="qty">
 
         </div>
         <div>
-            <label for="">Price</label>
-            <input type="text" name="price">
+            <label for="">color</label>
+            <input type="text" name="color">
+
+        </div>
+        <div>
+            <label for="">size</label>
+            <input type="text" name="size">
 
         </div>
         <div>
             <label for="">Description</label>
             <input type="text" name="description">
         </div>
-        <input type="submit" value="Create new product">
+        <input type="submit" value="Create new product details">
     </form>
 </body>
 

@@ -7,6 +7,15 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    public function search()
+    {
+        $name = '';
+        if (isset($_GET['name'])) {
+            $name = $_GET['name'];
+        }
+        $products = Product::where('name', 'LIKE', '%' . $name . '%')->get();
+        return view('products.index', ['products' => $products]);
+    }
     public function index()
     {
         $products = Product::all();
@@ -21,6 +30,9 @@ class ProductController extends Controller
 
         $data = $request->validate([
             'name' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'product_detail_id' => 'required',
             'qty' => 'required|integer',
             'price' => 'required|decimal:0,2',
             'description' => 'nullable'

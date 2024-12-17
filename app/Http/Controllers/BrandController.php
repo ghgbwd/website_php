@@ -7,6 +7,15 @@ use App\Models\Brand;
 
 class BrandController extends Controller
 {
+    public function search()
+    {
+        $name = '';
+        if (isset($_GET['name'])) {
+            $name = $_GET['name'];
+        }
+        $brands = Brand::where('name', 'LIKE', '%' . $name . '%')->get();
+        return view('brands.index', ['brands' => $brands]);
+    }
     public function index()
     {
         $brands = Brand::all();

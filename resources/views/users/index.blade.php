@@ -21,6 +21,12 @@
             <a href="{{route('user.create')}}">Create a user</a>
         </div>
         <table border="1">
+            <form method="get" action="{{route('user.search')}}">
+                @csrf
+                @method('get')
+                <input type="search" name="name" id="">
+                <input type="submit" value="Search">
+            </form>
             <tr>
                 <th>ID</th>
                 <th>Name</th>

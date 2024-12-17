@@ -10,6 +10,12 @@
 <body>
     <h1>Brands</h1>
     <table border="1">
+        <form method="get" action="{{route('brand.search')}}">
+            @csrf
+            @method('get')
+            <input type="search" name="name" id="">
+            <input type="submit" value="Search">
+        </form>
         <tr>
             <th>ID</th>
             <th>Name</th>

@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function search()
+    {
+        $name = '';
+        if (isset($_GET['name'])) {
+            $name = $_GET['name'];
+        }
+        $users = User::where('name', 'LIKE', '%' . $name . '%')->get();
+        return view('users.index', ['users' => $users]);
+    }
     public function index()
     {
         $users = User::all();
