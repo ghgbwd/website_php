@@ -34,6 +34,7 @@ class ProductController extends Controller
             'brand_id' => 'required',
             'product_detail_id' => 'required',
             'qty' => 'required|integer',
+            'size' => 'string',
             'price' => 'required|decimal:0,2',
             'description' => 'nullable'
         ]);
@@ -50,6 +51,7 @@ class ProductController extends Controller
             'name' => 'required',
             'qty' => 'required|numeric',
             'price' => 'required|decimal:0,2',
+            'size' => 'string',
             'description' => 'nullable'
         ]);
         $product->update($data);

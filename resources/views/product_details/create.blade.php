@@ -23,11 +23,6 @@
         @method('post')
 
         <div>
-            <label for="">Product Id</label>
-            <input type="text" name="product_id">
-        </div>
-
-        <div>
             <label for="">Qty</label>
             <input type="text" name="qty">
 
@@ -37,11 +32,7 @@
             <input type="text" name="color">
 
         </div>
-        <div>
-            <label for="">size</label>
-            <input type="text" name="size">
-
-        </div>
+        
         <div>
             <label for="">Description</label>
             <input type="text" name="description">

@@ -20,10 +20,8 @@ class Product_detailsController extends Controller
     {
 
         $data = $request->validate([
-            'product_id' => 'required',
             'qty' => 'required|integer',
             'color' => 'required',
-            'size' => 'required',
             'description' => 'nullable',
         ]);
         $newProduct_details = Product_details::create($data);
@@ -36,10 +34,8 @@ class Product_detailsController extends Controller
     public function update(Product_details $product_details, Request $request)
     {
         $data = $request->validate([
-            'product_id' => 'required',
             'qty' => 'required|integer',
             'color' => 'required',
-            'size' => 'required',
             'description' => 'nullable',
         ]);
         $product_details->update($data);

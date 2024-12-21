@@ -23,7 +23,6 @@
         <table border="1">
             <tr>
                 <th>ID</th>
-                <th>Product_ID</th>
                 <th>Qty</th>
                 <th>Color</th>
                 <th>Size</th>
@@ -34,7 +33,6 @@
             @foreach ($products_details as $product_details)
                 <tr>
                     <td>{{$product_details->id}}</td>
-                    <td>{{$product_details->product_id}}</td>
                     <td>{{$product_details->qty}}</td>
                     <td>{{$product_details->color}}</td>
                     <td>{{$product_details->size}}</td>

@@ -14,11 +14,6 @@
         @csrf
         @method('put')
         <div>
-            <label for="">Product_id</label>
-            <input type="text" name="product_id" placeholder="product_id" value="{{$product_details->product_id}}">
-
-        </div>
-        <div>
             <label for="">Qty</label>
             <input type="text" name="qty" placeholder="qty" value="{{$product_details->qty}}">
 
@@ -26,11 +21,6 @@
         <div>
             <label for="">Color</label>
             <input type="text" name="color" placeholder="color" value="{{$product_details->price}}">
-
-        </div>
-        <div>
-            <label for="">Size</label>
-            <input type="text" name="size" placeholder="size" value="{{$product_details->price}}">
 
         </div>
         <div>

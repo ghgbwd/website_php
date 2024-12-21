@@ -49,6 +49,11 @@
 
         </div>
         <div>
+            <label for="">size</label>
+            <input type="text" name="size">
+        
+        </div>
+        <div>
             <label for="">Description</label>
             <input type="text" name="description">
         </div>

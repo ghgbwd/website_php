@@ -19,6 +19,7 @@ class Order extends Model
         'street_address',
         'town_city',
         'email',
+        'product_id',
         'status',
     ];
     public function user()

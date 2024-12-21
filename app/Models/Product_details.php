@@ -9,10 +9,8 @@ class Product_details extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'product_id',
         'qty',
         'color',
-        'size',
         'description',
     ];
     public function product()
