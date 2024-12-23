@@ -12,9 +12,10 @@ class Product_details extends Model
         'qty',
         'color',
         'description',
+        'product_id',
     ];
     public function product()
     {
-        $this->hasOne(Product::class);
+        return $this->belongsTo(Product::class);
     }
 }

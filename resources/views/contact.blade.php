@@ -89,7 +89,7 @@
 	
 	<!-- Map -->
 	<div class="map">
-		<div class="size-303" id="google_map" data-map-x="40.691446" data-map-y="-73.886787" data-pin="images/icons/pin.png" data-scrollwhell="0" data-draggable="1" data-zoom="11"></div>
+		<div class="size-303" id="google_map" data-map-x="20.962456612067122" data-map-y="105.82161249658796" data-pin="images/icons/pin5.png" data-scrollwhell="0" data-draggable="1" data-zoom="11"></div>
 	</div>
 
 @endsection

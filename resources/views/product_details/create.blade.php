@@ -21,7 +21,10 @@
     <form method="post" action="{{route('product_details.store')}}">
         @csrf
         @method('post')
-
+        <div>
+            <label for="">Product ID</label>
+            <input type="text" name="product_id">        
+        </div>
         <div>
             <label for="">Qty</label>
             <input type="text" name="qty">

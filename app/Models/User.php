@@ -14,4 +14,7 @@ class User extends Model
         'password',
         'description',
     ];
+    public function order(){
+        return $this->hasMany(Order::class);
+    }
 }

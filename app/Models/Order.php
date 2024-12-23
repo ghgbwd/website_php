@@ -19,17 +19,10 @@ class Order extends Model
         'street_address',
         'town_city',
         'email',
-        'product_id',
         'status',
     ];
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-
-    // Quan hệ với bảng order_details
-    public function orderDetails()
-    {
-        return $this->hasMany(OrderDetail::class, 'order_id');
     }
 }

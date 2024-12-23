@@ -23,26 +23,26 @@
         <table border="1">
             <tr>
                 <th>ID</th>
+                <th>Product ID</th>
                 <th>Qty</th>
                 <th>Color</th>
-                <th>Size</th>
                 <th>Description</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-            @foreach ($products_details as $product_details)
+            @foreach ($products_details as $product_detail)
                 <tr>
-                    <td>{{$product_details->id}}</td>
-                    <td>{{$product_details->qty}}</td>
-                    <td>{{$product_details->color}}</td>
-                    <td>{{$product_details->size}}</td>
-                    <td>{{$product_details->description}}</td>
+                    <td>{{$product_detail->id}}</td>
+                    <td>{{$product_detail->product_id}}</td>
+                    <td>{{$product_detail->qty}}</td>
+                    <td>{{$product_detail->color}}</td>
+                    <td>{{$product_detail->description}}</td>
                     <td>
-                        <a href="{{route('product_details.edit', ['product_details' => $product_details])}}">Edit</a>
+                        <a href="{{route('product_details.edit', ['product_detail' => $product_detail])}}">Edit</a>
                     </td>
                     <td>
                         <form method="post"
-                            action="{{route('product_details.destroy', ['product_details' => $product_details])}}">
+                            action="{{route('product_details.destroy', ['product_detail' => $product_detail])}}">
                             @csrf
                             @method('delete')
                             <input type="submit" value="Delete" />

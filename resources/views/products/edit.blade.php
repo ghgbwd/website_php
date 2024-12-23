@@ -19,6 +19,22 @@
 
         </div>
         <div>
+            <label for="">Image 1</label>
+            <input type="file" name="image" onchange="previewImage(event)">
+            <label for="">Image 2</label>
+            <input type="file" name="image2" onchange="previewImage2(event)">
+            <label for="">Image 3</label>
+            <input type="file" name="image3" onchange="previewImage3(event)">
+            <label for="">Image 4</label>
+            <input type="file" name="image4" onchange="previewImage4 (event)">
+        </div>
+        <div class="image-previews">
+            <img id="imagePreview" src="#" alt="Ảnh sản phẩm preview" style="display: none;" />
+            <img id="imagePreview2" src="#" alt="Ảnh sản phẩm preview" style="display: none;" />
+            <img id="imagePreview3" src="#" alt="Ảnh sản phẩm preview" style="display: none;" />
+            <img id="imagePreview4" src="#" alt="Ảnh sản phẩm preview" style="display: none;" />
+        </div>
+        <div>
             <label for="">Qty</label>
             <input type="text" name="qty" placeholder="Qty" value="{{$product->qty}}">
 

@@ -38,6 +38,7 @@ Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name(
 Route::put('/product/{product}/update', [ProductController::class, 'update'])->name('product.update');
 Route::delete('/product/{product}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
+Route::get('/product/{product}/detail', [ProductController::class, 'detail'])->name('product.detail');
 
 Route::get('/brand', [BrandController::class, 'index'])->name('brand.index');
 Route::get('/brand/create', [BrandController::class, 'create'])->name('brand.create');
@@ -65,6 +66,6 @@ Route::get('/user/search', [UserController::class, 'search'])->name('user.search
 Route::get('/product_details', [Product_detailsController::class, 'index'])->name('product_details.index');
 Route::get('/product_details/create', [Product_detailsController::class, 'create'])->name('product_details.create');
 Route::post('/product_details', [Product_detailsController::class, 'store'])->name('product_details.store');
-Route::get('/product_details/{product_details}/edit', [Product_detailsController::class, 'edit'])->name('product_details.edit');
-Route::put('/product_details/{product_details}/update', [Product_detailsController::class, 'update'])->name('product_details.update');
-Route::delete('/product_details/{product_details}/destroy', [Product_detailsController::class, 'destroy'])->name('product_details.destroy');
+Route::get('/product_details/{product_detail}/edit', [Product_detailsController::class, 'edit'])->name('product_details.edit');
+Route::put('/product_details/{product_detail}/update', [Product_detailsController::class, 'update'])->name('product_details.update');
+Route::delete('/product_details/{product_detail}/destroy', [Product_detailsController::class, 'destroy'])->name('product_details.destroy');

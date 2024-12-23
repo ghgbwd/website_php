@@ -12,7 +12,10 @@ class Product extends Model
         'name',
         'category_id',
         'brand_id',
-        'product_detail_id',
+        'image',
+        'image2',
+        'image3',
+        'image4',
         'size',
         'qty',
         'price',
@@ -28,6 +31,6 @@ class Product extends Model
     }
     public function product_detail()
     {
-        return $this->belongsTo(Product_details::class);
+        return $this->hasMany(Product_details::class);
     }
 }

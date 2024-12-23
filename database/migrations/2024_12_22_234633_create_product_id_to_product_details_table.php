@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->foreignId('product_id')->constrained();
+        Schema::table('product_details', function (Blueprint $table) {
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
         });
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
+        Schema::table('product_details', function (Blueprint $table) {
             //
         });
     }

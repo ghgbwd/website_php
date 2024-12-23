@@ -20,6 +20,7 @@ class Product_detailsController extends Controller
     {
 
         $data = $request->validate([
+            'product_id'=>'required',
             'qty' => 'required|integer',
             'color' => 'required',
             'description' => 'nullable',
@@ -27,23 +28,23 @@ class Product_detailsController extends Controller
         $newProduct_details = Product_details::create($data);
         return redirect(route('product_details.index'));
     }
-    public function edit(Product_details $product_details)
+    public function edit(Product_details $product_detail)
     {
-        return view('product_details.edit', ['product_details' => $product_details]);
+        return view('product_details.edit', ['product_detail' => $product_detail]);
     }
-    public function update(Product_details $product_details, Request $request)
+    public function update(Product_details $product_detail, Request $request)
     {
         $data = $request->validate([
             'qty' => 'required|integer',
             'color' => 'required',
             'description' => 'nullable',
         ]);
-        $product_details->update($data);
+        $product_detail->update($data);
         return redirect(route('product_details.index'))->with('success', 'Product details Update Succesffully');
     }
-    public function destroy(Product_details $product_details)
+    public function destroy(Product_details $product_detail)
     {
-        $product_details->delete();
+        $product_detail->delete();
         return redirect(route('product_details.index'))->with('success', 'Product details deleted Succesffully');
     }
 }
