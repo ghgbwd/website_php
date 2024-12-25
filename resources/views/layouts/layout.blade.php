@@ -36,6 +36,10 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
     <!--===============================================================================================-->
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    <link rel="stylesheet" href="/css/style.css">
+    
 </head>
 
 <body class="animsition">
@@ -52,7 +56,7 @@
                     </div>
 
                     <div class="right-top-bar flex-w h-full">
-                        <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <a href="/login" class="flex-c-m trans-04 p-lr-25">
                             My Account
                         </a>
                     </div>
@@ -63,7 +67,7 @@
                 <nav class="limiter-menu-desktop container">
 
                     <!-- Logo desktop -->
-                    <a href="#" class="logo">
+                    <a href="/" class="logo">
                         <img src="images/icons/logo-phuthuyhoa2.png" alt="IMG-LOGO">
                     </a>
 
@@ -107,7 +111,7 @@
         <div class="wrap-header-mobile">
             <!-- Logo moblie -->
             <div class="logo-mobile">
-                <a href="index.html"><img src="images/icons/logo-phuthuyhoa2.png" alt="IMG-LOGO"></a>
+                <a href="/"><img src="images/icons/logo-phuthuyhoa2.png" alt="IMG-LOGO"></a>
             </div>
 
             <!-- Icon header -->
@@ -142,7 +146,7 @@
 
                 <li>
                     <div class="right-top-bar flex-w h-full">
-                        <a href="#" class="flex-c-m p-lr-10 trans-04">
+                        <a href="/login" class="flex-c-m p-lr-10 trans-04">
                             My Account
                         </a>
                     </div>
@@ -151,23 +155,19 @@
 
             <ul class="main-menu-m">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="/">Home</a>
                 </li>
 
                 <li>
-                    <a href="product.html">Shop</a>
+                    <a href="/product">Shop</a>
                 </li>
 
                 <li>
-                    <a href="blog.html">Blog</a>
+                    <a href="/about">About</a>
                 </li>
 
                 <li>
-                    <a href="about.html">About</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="/contact">Contact</a>
                 </li>
             </ul>
         </div>

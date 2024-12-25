@@ -55,4 +55,23 @@ class UserController extends Controller
         $user->delete();
         return redirect(route('users.index'))->with('success', 'User deleted Succesffully');
     }
-}
+    public function login(){
+        return view('login');
+    }
+    public function login_process(Request $request)
+    {
+        $data=$request->validate([
+            'email'=> 'required',
+            'password'=> 'required'
+        ]);
+        $user = User::where('email','=', $data['email'])->first();
+        if ($user) {
+            if ($user->password == $data['password']) {
+                session(['user_id' => $user->id]);
+                return redirect('/');
+            }else{
+                return redirect('/login');
+            }
+        }
+    }   
+}   
