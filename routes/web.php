@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\OrderController;
 use App\Models\Category;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -67,6 +69,27 @@ Route::post('/product_details', [Product_detailsController::class, 'store'])->na
 Route::get('/product_details/{product_detail}/edit', [Product_detailsController::class, 'edit'])->name('product_details.edit');
 Route::put('/product_details/{product_detail}/update', [Product_detailsController::class, 'update'])->name('product_details.update');
 Route::delete('/product_details/{product_detail}/destroy', [Product_detailsController::class, 'destroy'])->name('product_details.destroy');
+
+
+
+// Đang code
+// Route::get('/order', [OrderController::class,'index'])->name('order.index');
+// Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
+// Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+// Route::get('/order/add_to_cart/{product}', [OrderController::class, 'addToCart']);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/login', [UserController::class,'login'])->name('user.login');
 Route::post('/login', [UserController::class, 'login_process'])->name('login.process');

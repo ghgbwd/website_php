@@ -72,12 +72,10 @@
 
                             <div class="size-204 respon6-next">
                                 <div class="rs1-select2 bor8 bg0">
-                                    <select class="js-select2" name="time">
-                                        <option>Choose an option</option>
-                                        <option>Red</option>
-                                        <option>Blue</option>
-                                        <option>White</option>
-                                        <option>Grey</option>
+                                    <select class="js-select2" id="color-select" name="time">
+                                        @foreach ($product->product_detail as $color)
+                                            <option value="{{$color->id}}">{{$color->color}}</option>
+                                        @endforeach
                                     </select>
                                     <div class="dropDownSelect2"></div>
                                 </div>
@@ -99,7 +97,7 @@
                                     </div>
                                 </div>
 
-                                <button
+                                <button onclick="addToCart({{$product->id}})"
                                     class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
                                     Add to cart
                                 </button>
@@ -375,4 +373,17 @@ $colorString = implode(', ', $colors);
         </div>
     </div>
 </section>
+<script>
+    function addToCart(productId) {
+            const quantity = document.querySelector('.num-product').value; // Get the quantity
+            const color = document.getElementById('color-select').value; // Get the selected color
+            
+            // Redirect to cart page or send an AJAX request
+            const url = `order/add_to_cart/${productId}?quantity=${quantity}&color=${color}`;
+            window.location.href = url; // Or send an AJAX request instead of redirecting
+        }
+
+
+
+</script>
 @endsection
