@@ -13,7 +13,7 @@
             /* Khoảng cách giữa các ảnh */
             margin-top: 10px;
         }
-    
+
         .image-previews img {
             max-width: 200px;
             /* Chiều rộng tối đa cho các ảnh */
@@ -50,6 +50,7 @@
             <label for="">Brand Id</label>
             <input type="text" name="brand_id">
         </div>
+
         <div>
             <label for="">Image 1</label>
             <input type="file" name="image" onchange="previewImage(event)">
