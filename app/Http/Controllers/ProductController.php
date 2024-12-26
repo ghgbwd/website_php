@@ -21,6 +21,11 @@ class ProductController extends Controller
         $products = Product::all();
         return view('products.index', ['products' => $products]);
     }
+    public function home_review()
+    {
+        $products = Product::all();
+        return view('welcome', ['products' => $products]);
+    }
     public function create()
     {
         return view('products.create');
