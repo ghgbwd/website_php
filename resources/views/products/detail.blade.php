@@ -207,8 +207,8 @@
 
                                         <span class="stext-102 cl6 size-206">
                                             @php
-$colors = $product->product_detail->pluck('color')->toArray();
-$colorString = implode(', ', $colors);
+                                                $colors = $product->product_detail->pluck('color')->toArray();
+                                                $colorString = implode(', ', $colors);
                                             @endphp
                                             {{$colorString}}
                                         </span>
