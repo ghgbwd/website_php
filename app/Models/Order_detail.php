@@ -11,8 +11,9 @@ class Order_detail extends Model
     protected $fillable = [
         'order_id',
         'product_id',
-        'qty',
         'total',
+        'qty',
+        'color',
     ];
     public function product(){
         return $this->belongsTo(Product::class);

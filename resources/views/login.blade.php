@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+<section class="bg-img1 txt-center p-lr-15 p-tb-42" style="background-image: url('images/bg-01.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			Login
 		</h2>
@@ -24,6 +24,7 @@
           <span class="button__text">Log In Now</span>
           <i class="button__icon fas fa-chevron-right"></i>
         </button>
+        <a href="/user/create">Register</a>
       </form>
       <div class="social-login">
         <h3>log in via</h3>

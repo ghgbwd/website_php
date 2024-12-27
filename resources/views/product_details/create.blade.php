@@ -26,16 +26,10 @@
             <input type="text" name="product_id">        
         </div>
         <div>
-            <label for="">Qty</label>
-            <input type="text" name="qty">
-
-        </div>
-        <div>
             <label for="">color</label>
             <input type="text" name="color">
 
         </div>
-        
         <div>
             <label for="">Description</label>
             <input type="text" name="description">

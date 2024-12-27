@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('home_address_details')->nullable();
             $table->string('street_address')->nullable();
             $table->string('town_city')->nullable();
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

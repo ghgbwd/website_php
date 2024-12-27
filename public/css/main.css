@@ -985,7 +985,6 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   width: 60px;
   position: relative;
   margin-right: 20px;
-  cursor: pointer;
 }
 
 .header-cart-item-img img {
@@ -1938,7 +1937,7 @@ input.num-product::-webkit-inner-spin-button {
 
 .table-shopping-cart .column-4 {
   width: 145px;
-  text-align: right;
+  text-align: center;
 }
 
 .table-shopping-cart .column-5 {

@@ -28,7 +28,7 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|unique:users,email|email|max:255',
             'password' => 'required',
             'description' => 'nullable',
         ]);
@@ -43,7 +43,7 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users,email|email|max:255',
             'password' => 'required',
             'description' => 'nullable'
         ]);
@@ -68,10 +68,16 @@ class UserController extends Controller
         if ($user) {
             if ($user->password == $data['password']) {
                 session(['user_id' => $user->id]);
+                session(['user_name' => $user->name]);
                 return redirect('/');
             }else{
                 return redirect('/login');
             }
         }
-    }   
+    }
+    public function logout(){
+        session()->forget('user_id');
+        session()->forget('user_name');
+        return redirect('/');
+    }  
 }   

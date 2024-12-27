@@ -73,10 +73,12 @@ Route::delete('/product_details/{product_detail}/destroy', [Product_detailsContr
 
 
 // Đang code
-// Route::get('/order', [OrderController::class,'index'])->name('order.index');
-// Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
-// Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
-// Route::get('/order/add_to_cart/{product}', [OrderController::class, 'addToCart']);
+Route::get('/order', [OrderController::class,'index'])->name('order.index');
+Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
+Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+Route::get('/order/add_to_cart/{product}', [OrderController::class, 'addToCart'])->name('order.addToCart');
+Route::get('/cart/remove/{key}', [OrderController::class, 'remove'])->name('cart.remove');
+Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
 
 
 
@@ -92,4 +94,5 @@ Route::delete('/product_details/{product_detail}/destroy', [Product_detailsContr
 
 
 Route::get('/login', [UserController::class,'login'])->name('user.login');
+Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
 Route::post('/login', [UserController::class, 'login_process'])->name('login.process');

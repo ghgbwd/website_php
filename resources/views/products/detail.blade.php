@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
 
-                                <button onclick="addToCart({{$product->id}})"
+                                <button onclick="addToCart({{$product}})"
                                     class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
                                     Add to cart
                                 </button>
@@ -384,12 +384,12 @@
     </div>
 </section>
 <script>
-    function addToCart(productId) {
+    function addToCart(product) {
             const quantity = document.querySelector('.num-product').value; // Get the quantity
             const color = document.getElementById('color-select').value; // Get the selected color
             
             // Redirect to cart page or send an AJAX request
-            const url = `order/add_to_cart/${productId}?quantity=${quantity}&color=${color}`;
+            const url = `{{route('order.addToCart', [$product])}}?quantity=${quantity}&color=${color}`;
             window.location.href = url; // Or send an AJAX request instead of redirecting
         }
 
