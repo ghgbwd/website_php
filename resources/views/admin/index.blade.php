@@ -94,7 +94,7 @@
                         @include('users.index')
                     @break
                     @case('order')
-                        @include('users.index')
+                        @include('order.admin_show')
                     @break
 
                     @default

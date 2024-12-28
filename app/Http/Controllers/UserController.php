@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -88,6 +89,7 @@ class UserController extends Controller
         $categories = Category::all();
         $products = Product::where('status', 1)->get();
         $users = User::all();
-        return view('admin.index',['brands' => $brands, 'categories' => $categories, 'products' => $products,'users' => $users]);
+        $orders = Order::all();
+        return view('admin.index',['brands' => $brands, 'categories' => $categories, 'products' => $products,'users' => $users, 'orders' => $orders]);
     }  
 }   
