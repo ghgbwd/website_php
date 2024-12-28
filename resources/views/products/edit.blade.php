@@ -28,6 +28,16 @@
 
         </div>
         <div>
+            <label for="">Brand</label>
+            <input type="text" name="brand_id" placeholder="brand_id" value="{{$product->brand_id}}">
+        
+        </div>
+        <div>
+            <label for="">Category</label>
+            <input type="text" name="category" placeholder="category_id" value="{{$product->category_id}}">
+        
+        </div>
+        <div>
             <label for="">Image 1</label>
             <input type="file" name="image" onchange="previewImage(event)">
             <label for="">Image 2</label>

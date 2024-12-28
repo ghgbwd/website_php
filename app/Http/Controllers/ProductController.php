@@ -95,6 +95,8 @@ class ProductController extends Controller
             'price' => 'nullable|regex:/^\d+(\.\d{1,2})?$/',
             'size' => 'nullable|string|max:255',
             'description' => 'nullable|string',
+            'brand_id'=>'nullable|integer',
+            'category_id' => 'nullable|integer',
         ]);
 
         $data = [];
