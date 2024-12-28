@@ -197,20 +197,6 @@
                                             {{$product->category->name}}
                                         </span>
                                     </li>
-
-                                    <li class="flex-w flex-t p-b-7">
-                                        <span class="stext-102 cl3 size-205">
-                                            Color
-                                        </span>
-
-                                        <span class="stext-102 cl6 size-206">
-                                            @php
-                                                $colors = $product->product_detail->pluck('color')->toArray();
-                                                $colorString = implode(', ', $colors);
-                                            @endphp
-                                            {{$colorString}}
-                                        </span>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
