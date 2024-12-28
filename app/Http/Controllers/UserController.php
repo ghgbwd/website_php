@@ -37,7 +37,7 @@ class UserController extends Controller
             'description' => 'nullable',
         ]);
         $newUser = User::create($data);
-        return redirect(route('users.index'));
+        return redirect(route('user.login'));
     }
     public function edit(User $user)
     {
