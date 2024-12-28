@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
     <h1>Users</h1>
     <div>
         @if(session()->has('success'))
@@ -17,10 +8,7 @@
         @endif
     </div>
     <div>
-        <div>
-            <a href="{{route('user.create')}}">Create a user</a>
-        </div>
-        <table border="1">
+        <table class="table table-bordered">
             <form method="get" action="{{route('user.search')}}">
                 @csrf
                 @method('get')
@@ -34,7 +22,6 @@
                 <th>Password</th>
                 <th>Description</th>
                 <th>Edit</th>
-                <th>Delete</th>
             </tr>
             @foreach ($users as $user)
                 <tr>
@@ -46,18 +33,8 @@
                     <td>
                         <a href="{{route('user.edit', ['user' => $user])}}">Edit</a>
                     </td>
-                    <td>
-                        <form method="post" action="{{route('user.destroy', ['user' => $user])}}">
-                            @csrf
-                            @method('delete')
-                            <input type="submit" value="Delete" />
-                        </form>
-                    </td>
                 </tr>
             @endforeach
 
         </table>
     </div>
-</body>
-
-</html>

@@ -16,14 +16,14 @@
         <div class="header-cart-content flex-w js-pscroll">
             <ul class="header-cart-wrapitem w-full">
                 @php
-                    $cart = session('cart', []); // Lấy giỏ hàng từ session
-                    $total = 0;
+$cart = session('cart', []); // Lấy giỏ hàng từ session
+$total = 0;
                 @endphp
 
                 @forelse($cart as $key => $item)
                                 @php
-                                    $subtotal = $item['price'] * $item['quantity'];
-                                    $total += $subtotal;
+    $subtotal = $item['price'] * $item['quantity'];
+    $total += $subtotal;
                                 @endphp
                                 <li class="header-cart-item flex-w flex-t m-b-12">
                                     <a href="{{ route('cart.remove', $key) }}" class="header-cart-item-img">
@@ -53,11 +53,11 @@
                 </div>
 
                 <div class="header-cart-buttons flex-w w-full">
-                    <a href="{{route('order.create')}}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+                    <a href="{{route('order.index')}}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
                         View Cart
                     </a>
 
-                    <a href="" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                    <a href="{{route('order.create')}}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
                         Check Out
                     </a>
                 </div>

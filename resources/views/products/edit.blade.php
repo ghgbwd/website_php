@@ -9,8 +9,17 @@
 
 <body>
     <h1>edit a Product</h1>
+    @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-    <form method="post" action="{{route('product.update', ['product' => $product]) }}">
+    <form method="post" enctype="multipart/form-data" action="{{route('product.update', ['product' => $product]) }}">
         @csrf
         @method('put')
         <div>

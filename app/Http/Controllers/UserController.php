@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,13 +16,13 @@ class UserController extends Controller
             $name = $_GET['name'];
         }
         $users = User::where('name', 'LIKE', '%' . $name . '%')->get();
-        return view('users.index', ['users' => $users]);
+        return view('admin.index', ['users' => $users,'tab1'=>'user']);
     }
-    public function index()
-    {
-        $users = User::all();
-        return view('users.index', ['users' => $users]);
-    }
+    // public function index()
+    // {
+    //     $users = User::all();
+    //     return view('admin.index', ['users' => $users]);
+    // }
     public function create()
     {
         return view('users.create');
@@ -79,5 +82,12 @@ class UserController extends Controller
         session()->forget('user_id');
         session()->forget('user_name');
         return redirect('/');
+    }
+    public function admin(){
+        $brands = Brand::all();
+        $categories = Category::all();
+        $products = Product::where('status', 1)->get();
+        $users = User::all();
+        return view('admin.index',['brands' => $brands, 'categories' => $categories, 'products' => $products,'users' => $users]);
     }  
 }   

@@ -55,7 +55,6 @@ Route::post('/category', [CategoryController::class, 'store'])->name('category.s
 Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
 Route::delete('/category/{category}/destroy', [CategoryController::class, 'destroy'])->name('category.destroy');
 
-Route::get('/user', [UserController::class, 'index'])->name('users.index');
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
 Route::put('/user/{user}/update', [UserController::class, 'update'])->name('user.update');
 Route::post('/user', [UserController::class, 'store'])->name('user.store');
@@ -83,7 +82,7 @@ Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show'
 
 
 
-
+Route::get('/admin',[UserController::class, 'admin'])->name('admin.index');
 
 
 

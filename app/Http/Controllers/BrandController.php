@@ -14,12 +14,12 @@ class BrandController extends Controller
             $name = $_GET['name'];
         }
         $brands = Brand::where('name', 'LIKE', '%' . $name . '%')->get();
-        return view('brands.index', ['brands' => $brands]);
+        return view('admin.index', ['brands' => $brands]);
     }
     public function index()
     {
         $brands = Brand::all();
-        return view('brands.index', ['brands' => $brands]);
+        return view('admin.index', ['brands' => $brands]);
     }
     public function create()
     {
@@ -31,7 +31,7 @@ class BrandController extends Controller
             'name' => 'required',
         ]);
         $newBrand = Brand::create($data);
-        return redirect(route('brand.index'));
+        return redirect()->route('admin.index',['tab'=>'brand']);
     }
     public function edit(Brand $brand)
     {
@@ -43,11 +43,11 @@ class BrandController extends Controller
             'name' => 'required',
         ]);
         $brand->update($data);
-        return redirect(route('brand.index'))->with('success', 'Brand Update Succesffully');
+        return redirect()->route('admin.index', ['tab' => 'brand']);
     }
     public function destroy(Brand $brand)
     {
         $brand->delete();
-        return redirect(route('brand.index'))->with('success', 'Brand deleted Succesffully');
+        return redirect()->route('admin.index', ['tab' => 'brand']);
     }
 }

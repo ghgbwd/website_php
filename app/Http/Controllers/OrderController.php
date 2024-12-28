@@ -86,6 +86,7 @@ class OrderController extends Controller
         Session::put('cart', $cart);
         $product->qty -= $quantity;
         $product->save();
+        return redirect()->back()->with('success', 'Product added to cart.');
     }
     public function remove($key)
     {

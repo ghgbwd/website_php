@@ -12,11 +12,8 @@
     <form method="post" action="{{route('brand.store')}}">
         @csrf
         @method('post')
-        <div>
-            <label for="">Name</label>
-            <input type="text" name="name">
-
-        </div>
+        <label for="">Name</label>
+        <input type="text" name="name">
 
         <input type="submit" value="Create new Brand">
     </form>
