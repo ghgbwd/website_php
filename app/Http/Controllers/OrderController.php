@@ -54,7 +54,6 @@ class OrderController extends Controller
 
         // Lấy thông tin sản phẩm
         $quantity = $_GET['quantity'];
-        $color = $_GET['color'];
 
         // Kiểm tra số lượng hàng còn
         if ($product->qty < $quantity) {
@@ -78,7 +77,6 @@ class OrderController extends Controller
                 'price' => $product->price,
                 'image' => $product->image,
                 'quantity' => $quantity,
-                'color' => $color,
             ];
         }
 

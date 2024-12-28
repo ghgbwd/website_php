@@ -76,7 +76,7 @@ class ProductController extends Controller
         $data['image4'] = $image4Path;
         Product::create($data);
 
-        return redirect(route('product.index'))->with('success', 'Sản phẩm đã được thêm thành công!');
+        return redirect(route('admin.index',['tab'=>'product']))->with('success', 'Sản phẩm đã được thêm thành công!');
     }
 
     public function edit(Product $product)

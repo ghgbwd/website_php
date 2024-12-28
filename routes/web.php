@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\Product_detailsController;
 
 
 
@@ -62,12 +61,6 @@ Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edi
 Route::delete('/user/{user}/destroy', [UserController::class, 'destroy'])->name('user.destroy');
 Route::get('/user/search', [UserController::class, 'search'])->name('user.search');
 
-Route::get('/product_details', [Product_detailsController::class, 'index'])->name('product_details.index');
-Route::get('/product_details/create', [Product_detailsController::class, 'create'])->name('product_details.create');
-Route::post('/product_details', [Product_detailsController::class, 'store'])->name('product_details.store');
-Route::get('/product_details/{product_detail}/edit', [Product_detailsController::class, 'edit'])->name('product_details.edit');
-Route::put('/product_details/{product_detail}/update', [Product_detailsController::class, 'update'])->name('product_details.update');
-Route::delete('/product_details/{product_detail}/destroy', [Product_detailsController::class, 'destroy'])->name('product_details.destroy');
 
 
 

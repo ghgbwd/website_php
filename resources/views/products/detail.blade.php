@@ -75,22 +75,7 @@
 
                     <!--  -->
                     <div class="p-t-33">
-                        <div class="flex-w flex-r-m p-b-10">
-                            <div class="size-203 flex-c-m respon6">
-                                Color
-                            </div>
-
-                            <div class="size-204 respon6-next">
-                                <div class="rs1-select2 bor8 bg0">
-                                    <select class="js-select2" id="color-select" name="time">
-                                        @foreach ($product->product_detail as $color)
-                                            <option value="{{$color->id}}">{{$color->color}}</option>
-                                        @endforeach
-                                    </select>
-                                    <div class="dropDownSelect2"></div>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="flex-w flex-r-m p-b-10">
                             <div class="size-204 flex-w flex-m respon6-next">
@@ -106,8 +91,13 @@
                                         <i class="fs-16 zmdi zmdi-plus"></i>
                                     </div>
                                 </div>
-
-                                <button onclick="addToCart({{$product}})"
+                                @php
+                                    $disabled = '';
+                                    if($product->qty < 1){
+                                        $disabled = 'disabled';
+                                    }
+                                @endphp
+                                <button onclick="addToCart({{$product}}) " {{$disabled}}
                                     class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
                                     Add to cart
                                 </button>
@@ -386,10 +376,9 @@
 <script>
     function addToCart(product) {
             const quantity = document.querySelector('.num-product').value; // Get the quantity
-            const color = document.getElementById('color-select').value; // Get the selected color
             
             // Redirect to cart page or send an AJAX request
-            const url = `{{route('order.addToCart', [$product])}}?quantity=${quantity}&color=${color}`;
+            const url = `{{route('order.addToCart', [$product])}}?quantity=${quantity}`;
             window.location.href = url; // Or send an AJAX request instead of redirecting
         }
 
