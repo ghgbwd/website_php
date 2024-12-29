@@ -1,3 +1,6 @@
+@php
+    session_start();
+@endphp
 <!DOCTYPE html>
 <html>
 
@@ -38,7 +41,12 @@
                 </div>
 
                 <span class="logout-spn">
-                    <a href="#" style="color:#fff;">LOGOUT</a>
+                    
+                    <div class="right-top-bar flex-w h-full">
+                        <a href="/logout" class="flex-c-m trans-04 p-lr-25">
+                            Log out
+                        </a>
+                    </div>
 
                 </span>
             </div>
@@ -95,6 +103,9 @@
                     @break
                     @case('order')
                         @include('order.admin_show')
+                    @break
+                    @case('order_detail')
+                        @include('order.detail_admin')
                     @break
 
                     @default

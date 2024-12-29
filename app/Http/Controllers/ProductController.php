@@ -9,21 +9,30 @@ class ProductController extends Controller
 {
     public function search()
     {
-        $name = '';
-        if (isset($_GET['name'])) {
-            $name = $_GET['name'];
-        }
-        $products = Product::where('name', 'LIKE', '%' . $name . '%')->where('status',1)->get();
+        $name = request()->get('name', '');
+        $products = Product::where('name', 'LIKE', '%' . $name . '%')
+            ->where('status', 1)
+            ->simplePaginate(8)
+            ->appends(['name' => $name]); // Giữ tham số 'name' khi chuyển trang
+
         return view('products.index', ['products' => $products]);
     }
     public function index()
     {
-        $products = Product::where('status', '=', '1')->get();;
+        $products = Product::where('status', 1)->simplePaginate(8);
+
         return view('products.index', ['products' => $products]);
     }
     public function home_review()
     {
-        $products = Product::all();
+        $products = Product::where('status','1')->simplePaginate(8);
+        if(session('email')){
+            $email = session('email');
+            if($email === 'admin@gmail.com'){
+                return redirect()->route('admin.index');
+            }
+        }
+        
         return view('welcome', ['products' => $products]);
     }
     public function create()

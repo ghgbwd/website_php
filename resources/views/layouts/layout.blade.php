@@ -1,6 +1,3 @@
-@php
-session_start();
-@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,19 +54,19 @@ session_start();
                         Free shipping for standard order over $100
                     </div>
                     @php
-$login = '/login';
-if (session()->exists('user_id')) {
-    $login = '/logout';
-}
+                        $login = '/login';
+                        if (session()->exists('user_id')) {
+                            $login = '/logout';
+                        }
                     @endphp
                     <div class="right-top-bar flex-w h-full">
                         <a href="{{$login}}" class="flex-c-m trans-04 p-lr-25">
                             @php
-if (session()->exists('user_id')) {
-    echo "Logout";
-} else {
-    echo "Login";
-}
+                                if (session()->exists('user_id')) {
+                                    echo "Logout";
+                                } else {
+                                    echo "Login";
+                                }
                             @endphp
                         </a>
                     </div>
@@ -105,10 +102,10 @@ if (session()->exists('user_id')) {
                         </ul>
                     </div>
                     @php
-$count = 0;
-if (session()->has('cart')) {
-    $count = count(session('cart'));
-}
+                        $count = 0;
+                        if (session()->has('cart')) {
+                            $count = count(session('cart'));
+                        }
                     @endphp
                     <!-- Icon header -->
                     <div class="wrap-icon-header flex-w flex-r-m">
@@ -451,4 +448,4 @@ if (session()->has('cart')) {
 
 </body>
 
-</html> 
+</html>

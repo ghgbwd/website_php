@@ -73,23 +73,39 @@ class UserController extends Controller
             if ($user->password == $data['password']) {
                 session(['user_id' => $user->id]);
                 session(['user_name' => $user->name]);
+                session(['email' => $user->email]);
                 return redirect('/');
             }else{
-                return redirect('/login');
+                return redirect('/login')->with('status', 'Wrong email or password');
             }
+        }else{
+            return redirect('/login')->with('status', 'Wrong email or password');
         }
     }
     public function logout(){
         session()->forget('user_id');
         session()->forget('user_name');
+        session()->forget('email');
         return redirect('/');
     }
     public function admin(){
+        if (!session('email')) {
+            return view('404');
+        }
+        $email = session('email');
+        if ($email !== 'admin@gmail.com') {
+            return view('404');
+        }
         $brands = Brand::all();
         $categories = Category::all();
         $products = Product::where('status', 1)->get();
         $users = User::all();
         $orders = Order::all();
-        return view('admin.index',['brands' => $brands, 'categories' => $categories, 'products' => $products,'users' => $users, 'orders' => $orders]);
-    }  
-}   
+        $order1 = [];
+        if (isset($_GET['order1'])) {
+            $id = $_GET['order1'];
+            $order1 = Order::with('Order_detail.product')->findOrFail($id);
+        }
+        return view('admin.index',['brands' => $brands, 'categories' => $categories, 'products' => $products,'users' => $users, 'orders' => $orders, 'order1' => $order1]);
+    }
+}

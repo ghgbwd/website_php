@@ -74,6 +74,7 @@ Route::post('/order/store', [OrderController::class, 'store'])->name('order.stor
 Route::get('/order/add_to_cart/{product}', [OrderController::class, 'addToCart'])->name('order.addToCart');
 Route::get('/cart/remove/{key}', [OrderController::class, 'remove'])->name('cart.remove');
 Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+Route::get('/admin/order/{id}', [UserController::class, 'show_admin'])->name('orders.showAdmin');
 
 
 

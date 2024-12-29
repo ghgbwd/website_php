@@ -105,6 +105,7 @@ class OrderController extends Controller
         $order = Order::with('Order_detail.product')->findOrFail($id); // Lấy đơn hàng và chi tiết
         return view('order.detail', compact('order'));
     }
+    
 
 
 }
