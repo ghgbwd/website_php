@@ -38,45 +38,42 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'required|exists:brands,id',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image3' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image4' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'qty' => 'required|integer|min:1',
             'size' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'description' => 'nullable|string',
         ]);
 
-
         $imagePath = null;
         if ($request->hasFile('image')) {
-
             $imagePath = $request->file('image')->store('products', 'public');
         }
+
         $image2Path = null;
         if ($request->hasFile('image2')) {
-
             $image2Path = $request->file('image2')->store('products', 'public');
         }
+
         $image3Path = null;
         if ($request->hasFile('image3')) {
-
             $image3Path = $request->file('image3')->store('products', 'public');
         }
+
         $image4Path = null;
         if ($request->hasFile('image4')) {
-
             $image4Path = $request->file('image4')->store('products', 'public');
         }
 
- 
         $data['image'] = $imagePath;
         $data['image2'] = $image2Path;
         $data['image3'] = $image3Path;
         $data['image4'] = $image4Path;
         Product::create($data);
 
-        return redirect(route('admin.index',['tab'=>'product']))->with('success', 'Sản phẩm đã được thêm thành công!');
+        return redirect(route('admin.index', ['tab' => 'product']))->with('success', 'Sản phẩm đã được thêm thành công!');
     }
 
     public function edit(Product $product)

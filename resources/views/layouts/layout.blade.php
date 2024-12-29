@@ -1,5 +1,5 @@
 @php
-    session_start();
+session_start();
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +41,7 @@
     <!--===============================================================================================-->
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{asset('/css/style.css')}}">
 
 </head>
 
@@ -57,19 +57,19 @@
                         Free shipping for standard order over $100
                     </div>
                     @php
-                        $login = '/login';
-                        if (session()->exists('user_id')) {
-                            $login = '/logout';
-                        }
+$login = '/login';
+if (session()->exists('user_id')) {
+    $login = '/logout';
+}
                     @endphp
                     <div class="right-top-bar flex-w h-full">
                         <a href="{{$login}}" class="flex-c-m trans-04 p-lr-25">
                             @php
-                                if (session()->exists('user_id')) {
-                                    echo "Logout";
-                                } else {
-                                    echo "Login";
-                                }
+if (session()->exists('user_id')) {
+    echo "Logout";
+} else {
+    echo "Login";
+}
                             @endphp
                         </a>
                     </div>
@@ -105,10 +105,10 @@
                         </ul>
                     </div>
                     @php
-                        $count = 0;
-                        if (session()->has('cart')) {
-                            $count = count(session('cart'));
-                        }
+$count = 0;
+if (session()->has('cart')) {
+    $count = count(session('cart'));
+}
                     @endphp
                     <!-- Icon header -->
                     <div class="wrap-icon-header flex-w flex-r-m">
@@ -219,6 +219,7 @@
                     </h4>
 
                     <ul>
+
                         <li class="p-b-10">
                             <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
                                 Women
@@ -347,14 +348,14 @@
 
 
     <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="{{asset('/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
     <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <script src="{{asset('/vendor/animsition/js/animsition.min.js')}}"></script>
     <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{asset('/vendor/bootstrap/js/popper.js')}}"></script>
+    <script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="{{asset('/vendor/select2/select2.min.js')}}"></script>
     <script>
         $(".js-select2").each(function () {
             $(this).select2({
@@ -364,18 +365,18 @@
         })
     </script>
     <!--===============================================================================================-->
-    <script src="vendor/daterangepicker/moment.min.js"></script>
-    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="{{asset('/vendor/daterangepicker/moment.min.js')}}"></script>
+    <script src="{{asset('/vendor/daterangepicker/daterangepicker.js')}}"></script>
     <!--===============================================================================================-->
-    <script src="vendor/slick/slick.min.js"></script>
-    <script src="js/slick-custom.js"></script>
+    <script src="{{asset('/vendor/slick/slick.min.js')}}"></script>
+    <script src="{{asset('/js/slick-custom.js')}}"></script>
     <!--===============================================================================================-->
-    <script src="vendor/parallax100/parallax100.js"></script>
+    <script src="{{asset('/vendor/parallax100/parallax100.js')}}"></script>
     <script>
         $('.parallax100').parallax100();
     </script>
     <!--===============================================================================================-->
-    <script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+    <script src="{{asset('/vendor/MagnificPopup/jquery.magnific-popup.min.js')}}"></script>
     <script>
         $('.gallery-lb').each(function () { // the containers for all your galleries
             $(this).magnificPopup({
@@ -389,9 +390,9 @@
         });
     </script>
     <!--===============================================================================================-->
-    <script src="vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="{{asset('/vendor/isotope/isotope.pkgd.min.js')}}"></script>
     <!--===============================================================================================-->
-    <script src="vendor/sweetalert/sweetalert.min.js"></script>
+    <script src="{{asset('/vendor/sweetalert/sweetalert.min.js')}}"></script>
     <script>
         $('.js-addwish-b2').on('click', function (e) {
             e.preventDefault();
@@ -429,7 +430,7 @@
 
     </script>
     <!--===============================================================================================-->
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="{{asset('/vendor/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
     <script>
         $('.js-pscroll').each(function () {
             $(this).css('position', 'relative');
@@ -446,8 +447,8 @@
         });
     </script>
     <!--===============================================================================================-->
-    <script src="js/main.js"></script>
+    <script src="{{asset('/js/main.js')}}"></script>
 
 </body>
 
-</html>
+</html> 

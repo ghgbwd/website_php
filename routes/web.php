@@ -30,6 +30,9 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+
+Route::get('/*', [CategoryController::class, 'footer_cate'])->name('category.footer_cate');
+
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');

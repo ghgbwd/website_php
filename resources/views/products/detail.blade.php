@@ -1,7 +1,6 @@
-@extends('layouts.layout');
+@extends('layouts.layout')
 
 @section('content')
-
 <!-- Product Detail -->
 <section class="sec-product-detail bg0 p-t-65 p-b-60">
     <div class="container">
@@ -23,7 +22,7 @@
                                     </a>
                                 </div>
                             </div>
-
+                            @if (isset($product->image2))
                             <div class="item-slick3" data-thumb="{{ asset('storage/' . $product->image2) }}">
                                 <div class="wrap-pic-w pos-relative">
                                     <img src="{{ asset('storage/' . $product->image2) }}" alt="IMG-PRODUCT">
@@ -34,7 +33,9 @@
                                     </a>
                                 </div>
                             </div>
-
+                            @endif
+                            
+                            @if (isset($product->image3))
                             <div class="item-slick3" data-thumb="{{ asset('storage/' . $product->image3) }}">
                                 <div class="wrap-pic-w pos-relative">
                                     <img src="{{ asset('storage/' . $product->image3) }}" alt="IMG-PRODUCT">
@@ -45,6 +46,9 @@
                                     </a>
                                 </div>
                             </div>
+                            @endif
+
+                            @if (isset($product->image4))
                             <div class="item-slick4" data-thumb="{{ asset('storage/' . $product->image4) }}">
                                 <div class="wrap-pic-w pos-relative">
                                     <img src="{{ asset('storage/' . $product->image4) }}" alt="IMG-PRODUCT">
@@ -54,7 +58,11 @@
                                         <i class="fa fa-expand"></i>
                                     </a>
                                 </div>
-                            </div>
+                            </div>    
+                            @endif
+
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -92,10 +100,10 @@
                                     </div>
                                 </div>
                                 @php
-                                    $disabled = '';
-                                    if($product->qty < 1){
-                                        $disabled = 'disabled';
-                                    }
+$disabled = '';
+if ($product->qty < 1) {
+    $disabled = 'disabled';
+}
                                 @endphp
                                 <button onclick="addToCart({{$product}}) " {{$disabled}}
                                     class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
@@ -367,8 +375,6 @@
             const url = `{{route('order.addToCart', [$product])}}?quantity=${quantity}`;
             window.location.href = url; // Or send an AJAX request instead of redirecting
         }
-
-
-
 </script>
 @endsection
+
