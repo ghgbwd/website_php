@@ -26,11 +26,22 @@
             <th>{{$product->category->name}}</th>
             <th>{{$product->brand->name}}</th>
             <th>{{$product->size}}</th>
-            <th><img src="{{ asset('storage/' . $product->image) }}" width="30px" alt="IMG-PRODUCT"></th>
-            <th><img src="{{ asset('storage/' . $product->image2) }}" width="30px" alt="IMG-PRODUCT"></th>
-            <th><img src="{{ asset('storage/' . $product->image3) }}" width="30px" alt="IMG-PRODUCT"></th>
-            <th><img src="{{ asset('storage/' . $product->image4) }}" width="30px" alt="IMG-PRODUCT"></th>
-            <th><a href="{{route('product.edit',['product'=>$product])}}">Edit</a></th>
+            <th><img src="{{ asset('storage/' . $product->image) }}" width="60px" alt="IMG-PRODUCT"></th>
+            @if ($product->image2)
+                <th><img src="{{ asset('storage/' . $product->image2) }}" width="60px" alt="IMG-PRODUCT"></th>
+            @else
+                <th>none</th>
+            @endif
+            @if ($product->image3)
+                <th><img src="{{ asset('storage/' . $product->image3) }}" width="60px" alt="IMG-PRODUCT"></th>
+            @else
+                <th>none</th>
+            @endif
+            @if ($product->image4)
+                <th><img src="{{ asset('storage/' . $product->image4) }}" width="60px" alt="IMG-PRODUCT"></th>
+            @else
+                <th>none</th>
+            @endif
             <th>
                 <form method="post" action="{{route('product.destroy', ['product' => $product])}}">
                     @csrf
@@ -41,3 +52,6 @@
         </tr>
     @endforeach
 </table>
+<div>
+    {{$products->links()}}
+</div>
