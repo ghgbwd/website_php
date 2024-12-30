@@ -98,7 +98,7 @@ class UserController extends Controller
         }
         $brands = Brand::all();
         $categories = Category::all();
-        $products = Product::where('status', 1)->get();
+        $products = Product::where('status', 1)->simplePaginate(7)->appends(['tab' => 'product']);;
         $users = User::all();
         $orders = Order::all();
         $order1 = [];

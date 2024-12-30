@@ -54,19 +54,19 @@
                         Free shipping for standard order over $100
                     </div>
                     @php
-                        $login = '/login';
-                        if (session()->exists('user_id')) {
-                            $login = '/logout';
-                        }
+$login = '/login';
+if (session()->exists('user_id')) {
+    $login = '/logout';
+}
                     @endphp
                     <div class="right-top-bar flex-w h-full">
                         <a href="{{$login}}" class="flex-c-m trans-04 p-lr-25">
                             @php
-                                if (session()->exists('user_id')) {
-                                    echo "Logout";
-                                } else {
-                                    echo "Login";
-                                }
+if (session()->exists('user_id')) {
+    echo "Logout";
+} else {
+    echo "Login";
+}
                             @endphp
                         </a>
                     </div>
@@ -102,10 +102,10 @@
                         </ul>
                     </div>
                     @php
-                        $count = 0;
-                        if (session()->has('cart')) {
-                            $count = count(session('cart'));
-                        }
+$count = 0;
+if (session()->has('cart')) {
+    $count = count(session('cart'));
+}
                     @endphp
                     <!-- Icon header -->
                     <div class="wrap-icon-header flex-w flex-r-m">
@@ -160,19 +160,19 @@
 
                 <li>
                     @php
-                        $login = '/login';
-                        if (session()->exists('user_id')) {
-                            $login = '/logout';
-                        }
+$login = '/login';
+if (session()->exists('user_id')) {
+    $login = '/logout';
+}
                     @endphp
                     <div class="right-top-bar flex-w h-full">
                         <a href="{{$login}}" class="flex-c-m p-lr-10 trans-04">
                             @php
-                                if (session()->exists('user_id')) {
-                                    echo "Logout";
-                                } else {
-                                    echo "Login";
-                                }
+if (session()->exists('user_id')) {
+    echo "Logout";
+} else {
+    echo "Login";
+}
                             @endphp
                         </a>
                     </div>
@@ -220,39 +220,7 @@
     <footer class="bg3 p-t-75 p-b-32">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-lg-3 p-b-50">
-                    <h4 class="stext-301 cl0 p-b-30">
-                        Categories
-                    </h4>
-
-                    <ul>
-
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Women
-                            </a>
-                        </li>
-
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Men
-                            </a>
-                        </li>
-
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Shoes
-                            </a>
-                        </li>
-
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Watches
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
+                
                 <div class="col-sm-6 col-lg-3 p-b-50">
                     <h4 class="stext-301 cl0 p-b-30">
                         Help
@@ -260,25 +228,25 @@
 
                     <ul>
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="/contact" class="stext-107 cl7 hov-cl1 trans-04">
                                 Track Order
                             </a>
                         </li>
 
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="/contact" class="stext-107 cl7 hov-cl1 trans-04">
                                 Returns
                             </a>
                         </li>
 
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="/contact" class="stext-107 cl7 hov-cl1 trans-04">
                                 Shipping
                             </a>
                         </li>
 
                         <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                            <a href="/contact" class="stext-107 cl7 hov-cl1 trans-04">
                                 FAQs
                             </a>
                         </li>
