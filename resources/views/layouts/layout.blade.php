@@ -54,19 +54,19 @@
                         Free shipping on all orders
                     </div>
                     @php
-$login = '/login';
-if (session()->exists('user_id')) {
-    $login = '/logout';
-}
+                        $login = '/login';
+                        if (session()->exists('user_id')) {
+                            $login = '/logout';
+                        }
                     @endphp
                     <div class="right-top-bar flex-w h-full">
                         <a href="{{$login}}" class="flex-c-m trans-04 p-lr-25">
                             @php
-if (session()->exists('user_id')) {
-    echo "Logout";
-} else {
-    echo "Login";
-}
+                                if (session()->exists('user_id')) {
+                                    echo "Logout";
+                                } else {
+                                    echo "Login";
+                                }
                             @endphp
                         </a>
                     </div>
@@ -102,10 +102,10 @@ if (session()->exists('user_id')) {
                         </ul>
                     </div>
                     @php
-$count = 0;
-if (session()->has('cart')) {
-    $count = count(session('cart'));
-}
+                        $count = 0;
+                        if (session()->has('cart')) {
+                            $count = count(session('cart'));
+                        }
                     @endphp
                     <!-- Icon header -->
                     <div class="wrap-icon-header flex-w flex-r-m">
@@ -160,19 +160,19 @@ if (session()->has('cart')) {
 
                 <li>
                     @php
-$login = '/login';
-if (session()->exists('user_id')) {
-    $login = '/logout';
-}
+                        $login = '/login';
+                        if (session()->exists('user_id')) {
+                            $login = '/logout';
+                        }
                     @endphp
                     <div class="right-top-bar flex-w h-full">
                         <a href="{{$login}}" class="flex-c-m p-lr-10 trans-04">
                             @php
-if (session()->exists('user_id')) {
-    echo "Logout";
-} else {
-    echo "Login";
-}
+                                if (session()->exists('user_id')) {
+                                    echo "Logout";
+                                } else {
+                                    echo "Login";
+                                }
                             @endphp
                         </a>
                     </div>
@@ -240,14 +240,9 @@ if (session()->exists('user_id')) {
                             </a>
                         </li>
 
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Link shopee:https://s.shopee.vn/9KR6slMNDE
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
+
                 <div class="col-sm-6 col-lg-3 p-b-50">
                     <h4 class="stext-301 cl0 p-b-30">
                         Link shopee
@@ -257,10 +252,19 @@ if (session()->exists('user_id')) {
                         https://s.shopee.vn/9KR6slMNDE
                     </p>
                 </div>
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        Link tiktok
+                    </h4>
+
+                    <p class="stext-107 cl7 size-201">
+                        https://www.tiktok.com/@hoaphuthuy_1993?_t=8ri8RoOvcHP&_r=1
+                    </p>
+                </div>
 
                 <div class="col-sm-6 col-lg-3 p-b-50">
                     <h4 class="stext-301 cl0 p-b-30">
-                        SHOP ADDRESSADDRESS
+                        SHOP ADDRESS
                     </h4>
 
                     <p class="stext-107 cl7 size-201">
