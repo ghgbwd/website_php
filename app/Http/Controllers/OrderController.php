@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
-    public function index(){
-        $orders = Order::orderBy("id","desc")->simplePaginate(10);
-        return view('order.index',['orders' => $orders]);
+    public function index()
+    {
+        if (!session('email')) {
+            return redirect()->route('user.login');
+        }
+        $orders = Order::orderBy("id", "desc")->simplePaginate(10);
+        return view('order.index', ['orders' => $orders]);
     }
     public function create()
     {
@@ -28,7 +32,7 @@ class OrderController extends Controller
         $data = $request->validate([
             'phone' => 'required|regex:/^[0-9]{10}$/',
             'email' => 'required|email',
-            'first_name' => 'required|string|max:50', 
+            'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
             'home_address_details' => 'nullable|string|max:255',
             'street_address' => 'required|string|max:255',
@@ -53,8 +57,10 @@ class OrderController extends Controller
     {
 
         // Lấy thông tin sản phẩm
-        $quantity = $_GET['quantity'];
-
+        $quantity = 1;
+        if (isset($_GET['quantity'])&& $_GET['quantity']!==''&& $_GET['quantity']!=='0') {
+            $quantity = $_GET['quantity'];
+        }
         // Kiểm tra số lượng hàng còn
         if ($product->qty < $quantity) {
             return response()->json([
@@ -72,7 +78,7 @@ class OrderController extends Controller
         } else {
             // Thêm sản phẩm mới vào giỏ
             $cart[$product->id] = [
-                'id'=> $product->id,
+                'id' => $product->id,
                 'name' => $product->name,
                 'price' => $product->price,
                 'image' => $product->image,
@@ -105,7 +111,12 @@ class OrderController extends Controller
         $order = Order::with('Order_detail.product')->findOrFail($id); // Lấy đơn hàng và chi tiết
         return view('order.detail', compact('order'));
     }
-    
+
+    public function destroy(Order $order)
+    {
+        $order->delete();
+        return redirect()->back()->with('success', 'Order deleted successfully');
+    }
 
 
 }

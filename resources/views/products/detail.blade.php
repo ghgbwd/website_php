@@ -23,46 +23,46 @@
                                 </div>
                             </div>
                             @if (isset($product->image2))
-                            <div class="item-slick3" data-thumb="{{ asset('storage/' . $product->image2) }}">
-                                <div class="wrap-pic-w pos-relative">
-                                    <img src="{{ asset('storage/' . $product->image2) }}" alt="IMG-PRODUCT">
+                                <div class="item-slick3" data-thumb="{{ asset('storage/' . $product->image2) }}">
+                                    <div class="wrap-pic-w pos-relative">
+                                        <img src="{{ asset('storage/' . $product->image2) }}" alt="IMG-PRODUCT">
 
-                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                                        href="{{ asset('storage/' . $product->image2) }}">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
+                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
+                                            href="{{ asset('storage/' . $product->image2) }}">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
                             @endif
-                            
-                            @if (isset($product->image3))
-                            <div class="item-slick3" data-thumb="{{ asset('storage/' . $product->image3) }}">
-                                <div class="wrap-pic-w pos-relative">
-                                    <img src="{{ asset('storage/' . $product->image3) }}" alt="IMG-PRODUCT">
 
-                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                                        href="{{ asset('storage/' . $product->image3) }}">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
+                            @if (isset($product->image3))
+                                <div class="item-slick3" data-thumb="{{ asset('storage/' . $product->image3) }}">
+                                    <div class="wrap-pic-w pos-relative">
+                                        <img src="{{ asset('storage/' . $product->image3) }}" alt="IMG-PRODUCT">
+
+                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
+                                            href="{{ asset('storage/' . $product->image3) }}">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
                             @endif
 
                             @if (isset($product->image4))
-                            <div class="item-slick4" data-thumb="{{ asset('storage/' . $product->image4) }}">
-                                <div class="wrap-pic-w pos-relative">
-                                    <img src="{{ asset('storage/' . $product->image4) }}" alt="IMG-PRODUCT">
-                            
-                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                                        href="{{ asset('storage/' . $product->image4) }}">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
+                                <div class="item-slick4" data-thumb="{{ asset('storage/' . $product->image4) }}">
+                                    <div class="wrap-pic-w pos-relative">
+                                        <img src="{{ asset('storage/' . $product->image4) }}" alt="IMG-PRODUCT">
+
+                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
+                                            href="{{ asset('storage/' . $product->image4) }}">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>    
                             @endif
 
-                            
-                            
+
+
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
 
                     <!--  -->
                     <div class="p-t-33">
-                        
+
 
                         <div class="flex-w flex-r-m p-b-10">
                             <div class="size-204 flex-w flex-m respon6-next">
@@ -92,52 +92,36 @@
                                         <i class="fs-16 zmdi zmdi-minus"></i>
                                     </div>
 
-                                    <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product"
-                                        value="1">
+                                    <input class="mtext-104 cl3 txt-center num-product" min="1" type="number"
+                                        name="num-product" value="1" id="num-product">
 
                                     <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                         <i class="fs-16 zmdi zmdi-plus"></i>
                                     </div>
                                 </div>
                                 @php
-$disabled = '';
-if ($product->qty < 1) {
-    $disabled = 'disabled';
-}
+                                    $disabled = '';
+                                    $report = '';
+                                    if (!session('email')) {
+                                        $disabled = 'disabled';
+                                        $report = 'Please login';
+                                    }
+                                    if ($product->qty < 1) {
+                                        $disabled = 'disabled';
+                                        $report = 'Out of stock';
+                                    }
                                 @endphp
                                 <button onclick="addToCart({{$product}}) " {{$disabled}}
                                     class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
                                     Add to cart
                                 </button>
+                                <span>{{$report}}</span>
                             </div>
                         </div>
                     </div>
 
                     <!--  -->
-                    <div class="flex-w flex-m p-l-100 p-t-40 respon7">
-                        <div class="flex-m bor9 p-r-10 m-r-11">
-                            <a href="#"
-                                class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100"
-                                data-tooltip="Add to Wishlist">
-                                <i class="zmdi zmdi-favorite"></i>
-                            </a>
-                        </div>
 
-                        <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-                            data-tooltip="Facebook">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-
-                        <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-                            data-tooltip="Twitter">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-
-                        <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-                            data-tooltip="Google Plus">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -369,12 +353,11 @@ if ($product->qty < 1) {
 </section>
 <script>
     function addToCart(product) {
-            const quantity = document.querySelector('.num-product').value; // Get the quantity
-            
-            // Redirect to cart page or send an AJAX request
-            const url = `{{route('order.addToCart', [$product])}}?quantity=${quantity}`;
-            window.location.href = url; // Or send an AJAX request instead of redirecting
-        }
+        const quantity = document.querySelector('.num-product').value; // Get the quantity
+
+        // Redirect to cart page or send an AJAX request
+        const url = `{{route('order.addToCart', [$product])}}?quantity=${quantity}`;
+        window.location.href = url; // Or send an AJAX request instead of redirecting
+    }
 </script>
 @endsection
-

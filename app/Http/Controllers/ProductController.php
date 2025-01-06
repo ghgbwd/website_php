@@ -58,6 +58,8 @@ class ProductController extends Controller
     }
     public function home_review()
     {
+        session_start();
+        session_unset();
         $products = Product::where('status','1')->simplePaginate(8);
         if(session('email')){
             $email = session('email');

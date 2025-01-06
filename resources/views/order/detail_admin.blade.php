@@ -15,6 +15,7 @@
             <td >{{ $detail->qty }}</td>
             <td >{{ number_format($detail->total, 2) }} đ</td>
             <td >{{ number_format($detail->total * $detail->qty, 2) }} đ</td>
+            
         </tr>
     @endforeach
 </table>

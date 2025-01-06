@@ -12,34 +12,41 @@
     </tr>
     @foreach ($orders as $order)
 
-            <tr>
-                <th>
-                    {{$order->id}}
-                </th>
-                <th>{{date_format($order->created_at, 'd-m-Y')}}</th>
-                <th>
-                    {{$order->first_name . $order->last_name}}
-                </th>
-                <th>
-                    {{$order->phone}}
-                </th>
-                <th>{{$order->home_address_details}}-{{$order->street_address}}-{{$order->town_city}}</th>
-                <th>
-                    @php
-        $total = 0;
-                    @endphp
-                    @foreach ($order->order_detail as $each)
+        <tr>
+            <th>
+                {{$order->id}}
+            </th>
+            <th>{{date_format($order->created_at, 'd-m-Y')}}</th>
+            <th>
+                {{$order->first_name . $order->last_name}}
+            </th>
+            <th>
+                {{$order->phone}}
+            </th>
+            <th>{{$order->home_address_details}}-{{$order->street_address}}-{{$order->town_city}}</th>
+            <th>
+                @php
+                    $total = 0;
+                @endphp
+                @foreach ($order->order_detail as $each)
                         @php
-            $total += $each->qty * $each->total
+                            $total += $each->qty * $each->total
                         @endphp
-                    @endforeach
-                    {{$total}} vnđ
-                </th>
-                <th>{{$order->status}}</th>
-                <th>
-                    <a href="?tab=order_detail&order1={{$order->id}}">Detail</a>
-                </th>
-            </tr>
+                @endforeach
+                {{$total}} vnđ
+            </th>
+            <th>{{$order->status}}</th>
+            <th>
+                <a href="?tab=order_detail&order1={{$order->id}}">Detail</a>
+            </th>
+            <th>
+                <form method="post" action="{{route('orders.destroy', ['order' => $order])}}">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" value="Delete" />
+                </form>
+            </th>
+        </tr>
 
     @endforeach
 </table>
