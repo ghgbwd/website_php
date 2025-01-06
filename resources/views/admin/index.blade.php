@@ -34,7 +34,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img width="50px" src="{{asset('/images/icons/logo-phuthuyhoa.png')}}" />
+                        <img width="70px" src="{{asset('/images/icons/logo-phuthuyhoa.png')}}" />
 
                     </a>
 
