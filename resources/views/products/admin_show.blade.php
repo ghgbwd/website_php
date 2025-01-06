@@ -46,6 +46,7 @@
             @else
                 <th>none</th>
             @endif
+            <th><a href="{{route('product.edit',['product'=>$product])}}">Edit</a></th>
             <th>
                 <form method="post" action="{{route('product.destroy', ['product' => $product])}}">
                     @csrf

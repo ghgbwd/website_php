@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -9,19 +11,50 @@ class ProductController extends Controller
 {
     public function search()
     {
+        $brands = Brand::all();
+        $categories = Category::all();
         $name = request()->get('search', '');
-        $products = Product::where('name', 'LIKE', '%' . $name . '%')
-            ->where('status', 1)
-            ->simplePaginate(8)
-            ->appends(['name' => $name]); // Giữ tham số 'name' khi chuyển trang
+        $sort = request()->get('sort');
+        $price = request()->get('price', 5000000); // Giá mặc định là 5 triệu
+        $brand = request()->get('brand');
+        $category = request()->get('category');
 
-        return view('products.index', ['products' => $products]);
+        $query = Product::where('name', 'LIKE', '%' . $name . '%')
+            ->where('status', 1)
+            ->where('price', '<=', $price);
+
+        // Lọc theo thương hiệu nếu có
+        if (!empty($brand)) {
+            $query->where('brand_id', $brand);
+        }
+
+        // Lọc theo danh mục nếu có
+        if (!empty($category)) {
+            $query->where('category_id', $category);
+        }
+
+        // Sắp xếp (nếu cần)
+        if (!empty($sort)) {
+            $query->orderBy('id', $sort); // VD: $sort = 'asc' hoặc 'desc'
+        }
+
+        // Phân trang
+        $products = $query->simplePaginate(8)
+            ->appends([
+                'search' => $name,
+                'sort' => $sort,
+                'price' => $price,
+                'brand' => $brand,
+                'category' => $category,
+            ]);
+        return view('products.index', ['products' => $products, 'brands' => $brands, 'categories' => $categories]);
     }
     public function index()
     {
         $products = Product::where('status', 1)->simplePaginate(8);
-
-        return view('products.index', ['products' => $products]);
+        $brands = Brand::all();
+        $categories = Category::all();
+        return view('products.index', ['products' => $products, 'brands' => $brands, 'categories' => $categories]);
     }
     public function home_review()
     {

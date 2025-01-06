@@ -56,8 +56,8 @@
                                             alt="{{ $detail->product->image }}">
                                     </td>
                                     <td class="column-3">{{ $detail->qty }}</td>
-                                    <td class="column-4">{{ number_format($detail->total, 2) }}</td>
-                                    <td class="column-5">{{ number_format($detail->total * $detail->qty, 2) }}</td>
+                                    <td class="column-4">{{ number_format($detail->total, 2) }} đ</td>
+                                    <td class="column-5">{{ number_format($detail->total * $detail->qty, 2) }} đ</td>
                                 </tr>
                             @endforeach
                         </table>

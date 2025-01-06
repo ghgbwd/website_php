@@ -28,27 +28,26 @@
                             @endphp
 
                             @forelse($cart as $key => $item)
-                                                        @php
-                                                            $subtotal = $item['price'] * $item['quantity'];
-                                                            $total += $subtotal;
-                                                        @endphp
-                                                        <tr class="table_row">
-                                                            <td class="column-1">
-                                                                <a href=" {{ route('cart.remove', $key) }}">
-                                                                    <div class="how-itemcart1">
-                                                                        <img src="{{asset('storage/' . $item['image'])}}" alt="{{ $item['name'] }}">
-                                                                    </div>
-                                                                </a>
+                                @php
+                                    $subtotal = $item['price'] * $item['quantity'];
+                                    $total += $subtotal;
+                                @endphp
+                                <tr class="table_row">
+                                    <td class="column-1">
+                                        <a href=" {{ route('cart.remove', $key) }}">
+                                            <div class="how-itemcart1">
+                                                <img src="{{asset('storage/' . $item['image'])}}" alt="{{ $item['name'] }}">
+                                            </div>
+                                        </a>
 
-                                                            </td>
-                                                            <td class="column-2">{{$item['name']}}</td>
-                                                            <td class="column-3">{{$item['price']}}</td>
-                                                            <td class="column-4">
-                                                                {{$item['quantity']}}
-                                                            </td>
-                                                            <td class="column-5">{{ $item['quantity'] }} x ${{ number_format($item['price'], 2) }}
-                                                            </td>
-                                                        </tr>
+                                    </td>
+                                    <td class="column-2">{{$item['name']}}</td>
+                                    <td class="column-3">{{$item['price']}} đ</td>
+                                    <td class="column-4">
+                                        {{$item['quantity']}}
+                                    </td>
+                                    <td class="column-5">{{ number_format($item['price']* $item['quantity'], 2) }} đ</td>
+                                </tr>
                             @empty
                                 <li class="header-cart-item flex-w flex-t m-b-12">
                                     <p class="text-center w-full">Your cart is empty.</p>

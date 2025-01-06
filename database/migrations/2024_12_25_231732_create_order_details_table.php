@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('qty');
-            $table->unsignedInteger('total');
+            $table->unsignedDecimal('total');
             $table->timestamps();
         });
     }

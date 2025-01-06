@@ -3,8 +3,85 @@
 
 @section('content')
 <!-- Product -->
-<div class="bg0 m-t-83 p-b-140">
+<div class="bg0 m-t-63 p-b-140">
 	<div class="container">
+		<div class="flex-w flex-sb-m p-b-12 justify-content-end ">
+
+			<div class="flex-w flex-c-m m-tb-10">
+				<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
+					<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
+					<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+					Filter
+				</div>
+			</div>
+
+			<!-- Filter -->
+			<div class="dis-none panel-filter w-full p-t-10">
+				<form method="get" class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm"
+					action="{{route('product.search')}}">
+					@csrf
+					@method('get')
+					<div class="filter-col1 p-r-15 p-b-27">
+						<div class="mtext-102 cl2 p-b-15">
+							Sort By
+						</div>
+						<div class="d-flex align-items-center">
+							<input type="radio" name="sort" checked id="default" value="asc" class="me-2">
+							<label for="default" class="form-label mb-0">Default</label>
+						</div>
+						<div class="d-flex align-items-center">
+							<input type="radio" name="sort" id="newness" value="desc" class="me-2">
+							<label for="newness" class="form-label mb-0">Newness</label>
+						</div>
+					</div>
+
+					<div class="filter-col2 p-r-15 p-b-27">
+						<div class="mtext-102 cl2 p-b-15">
+							Price
+						</div>
+						<div>
+							<label for="price">Chọn giá:</label>
+							<input type="range" name="price" id="price" min="0" max="5000000" step="1000"
+								value="5000000" oninput="updatePrice(this.value)">
+							<span id="priceValue">5000000</span>₫
+						</div>
+					</div>
+
+					<div class="filter-col3 p-r-15 p-b-27">
+						<div class="mtext-102 cl2 p-b-15">
+							Brand
+						</div>
+						<div class="d-flex align-items-center">
+							<input type="radio" name="brand" checked id="all" value="" class="me-2">
+							<label for="all" class="form-label mb-0">All</label>
+						</div>
+						@foreach ($brands as $brand)
+							<div class="d-flex align-items-center">
+								<input type="radio" name="brand" id="{{$brand->id}}" value="{{$brand->id}}" class="me-2">
+								<label for="{{$brand->id}}" class="form-label mb-0">{{$brand->name}}</label>
+							</div>
+						@endforeach
+					</div>
+
+					<div class="filter-col4 p-b-27">
+						<div class="mtext-102 cl2 p-b-15">
+							Category
+						</div>
+						<div class="d-flex align-items-center">
+							<input type="radio" name="category" checked id="all" value="" class="me-2">
+							<label for="all" class="form-label mb-0">All</label>
+						</div>
+						@foreach ($categories as $category)
+							<div class="d-flex align-items-center">
+								<input type="radio" name="category" id="{{$category->id}}" value="{{$category->id}}" class="me-2">
+								<label for="{{$category->id}}" class="form-label mb-0">{{$category->name}}</label>
+							</div>
+						@endforeach
+					</div>
+					<input type="submit" value="Filter">
+				</form>
+			</div>
+		</div>
 		<div class="row isotope-grid">
 			@foreach ($products as $product)
 
@@ -51,5 +128,9 @@
 		</div>
 	</div>
 </div>
-
+<script>
+	function updatePrice(value) {
+		document.getElementById('priceValue').textContent = parseInt(value).toLocaleString('vi-VN');
+	}
+</script>
 @endsection
