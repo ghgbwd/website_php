@@ -63,9 +63,7 @@ class OrderController extends Controller
         }
         // Kiểm tra số lượng hàng còn
         if ($product->qty < $quantity) {
-            return response()->json([
-                'message' => 'Sản phẩm không đủ hàng.',
-            ], 400);
+            return redirect()->back()->with('qty_fail', 'Out of stock (remain ' . $product->qty . ')');
         }
 
         // Thêm sản phẩm vào giỏ hàng (sử dụng session để lưu trữ)

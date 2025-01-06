@@ -98,7 +98,14 @@
                                     <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                         <i class="fs-16 zmdi zmdi-plus"></i>
                                     </div>
+
+
                                 </div>
+                                @if (session('qty_fail'))
+                                    <div class="alert alert-danger">
+                                        {{ session('qty_fail')}}
+                                    </div>
+                                @endif
                                 @php
                                     $disabled = '';
                                     $report = '';
