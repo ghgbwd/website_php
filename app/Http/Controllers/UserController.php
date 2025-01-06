@@ -98,7 +98,11 @@ class UserController extends Controller
         }
         $brands = Brand::all();
         $categories = Category::all();
-        $products = Product::where('status', 1)->simplePaginate(7)->appends(['tab' => 'product']);;
+        $pro_search = '';
+        if (isset($_GET['pro_search'])) {
+            $pro_search = $_GET['pro_search'];
+        }
+        $products = Product::where('status', 1)->where('name', 'LIKE', '%' . $pro_search . '%')->simplePaginate(7)->appends(['tab' => 'product']);
         $users = User::all();
         $orders = Order::all();
         $order1 = [];

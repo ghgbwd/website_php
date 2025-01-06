@@ -1,6 +1,10 @@
 
 <a href="{{route('product.create')}}">Create product</a>
-
+<form method="get" action="?tab=products">
+    <input type="text" name="pro_search">
+    <input type="hidden" name="tab" value="product">
+    <input type="submit" value="Search">
+</form>
 <table class="table table-bordered">
     <tr>
         <th>ID</th>

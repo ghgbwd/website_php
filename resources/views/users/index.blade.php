@@ -7,7 +7,7 @@
             </div>
         @endif
     </div>
-    <div>
+    <div>  
         <table class="table table-bordered">
             <form method="get" action="{{route('user.search')}}">
                 @csrf
